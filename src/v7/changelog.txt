@@ -1,0 +1,11 @@
+Changes made compared to v6:
+- Bots now always go for enemy flags within view, regardless of role
+- Attackers and Defenders refresh their targets
+
+Notes:
+- Despite the small changes, v7 does significantly better than v6.
+- Like v5, v7 forms clusters around friendly flag carriers.
+    * Pro: The flag carriers are very difficult to destroy once in a cluster
+    * Con: Movement of the flag carrier is hampered by other close bots, maybe
+    add an argument to lingerToward() to give a little space to the carrier
+
