@@ -1,0 +1,14 @@
+Changes made compared to v5:
+- Completely re-hauled strategy
+* Each bot starts out unspecialized but can pick a role to change its behavior once it has
+more experience
+* The number of each role taken
+
+Notes:
+- v6 is the most dominant player so far
+- v6 generally attempts plays at multiple flags at the same time and then turtles
+once it does so
+- The defense is nearly impenetrable once set up due to the water and traps
+- Attacking flag carriers aren't defended well, a change in comms might improve this
+- Most bots don't go for the flag if given the chance
+- Both Attackers and Defenders are stubborn and don't choose new flags if their original flags are taken/moved
