@@ -1,0 +1,4 @@
+Changes made compared to examplefuncsplayer:
+- No traps are placed (simplify code for now)
+- Use BugNav algorithm to move to dropped flag locations, spawn points, or (0,0)
+- Now checks all possible spaces and attacks the first space that can be attacked
