@@ -1,0 +1,6 @@
+Changes made compared to v3:
+- Added micro
+    * Focus attack units that could be one-shot
+    * Heal flag carriers
+    * Heal other bots if there's nothing to attack
+    * Kite enemies
