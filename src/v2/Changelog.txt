@@ -1,0 +1,3 @@
+Changes made compared to v1:
+- Comms added (uses about 4k bytecode)
+- Uses more targets

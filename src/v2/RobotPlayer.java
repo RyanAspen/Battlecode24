@@ -1,8 +1,13 @@
-package v1;
+package v2;
 
 import battlecode.common.*;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 //Our imports
 
@@ -27,7 +32,9 @@ public strictfp class RobotPlayer {
      * import at the top of this file. Here, we *seed* the RNG with a constant number (6147); this makes sure
      * we get the same sequence of numbers every time this code is run. This is very useful for debugging!
      */
-    static final Random rng = new Random(6147);
+    static Random rng = null;
+
+    static MapLocation spawnPoint = null;
 
     /** Array containing all the possible movement directions. */
     static final Direction[] directions = {
@@ -41,7 +48,7 @@ public strictfp class RobotPlayer {
         Direction.NORTHWEST,
     };
 
-    static Pathing pathing;
+
 
     /**
      * run() is the method that is called when a robot is instantiated in the Battlecode world.
@@ -57,10 +64,10 @@ public strictfp class RobotPlayer {
         // Everything you say here will be directly viewable in your terminal when you run a match!
         System.out.println("I'm alive");
 
-
-        pathing = new Pathing(rc);
         // You can also use indicators to save debug notes in replays.
         rc.setIndicatorString("Hello world!");
+
+        rng = new Random(rc.getID());
 
         while (true) {
             // This code runs during the entire lifespan of the robot, which is why it is in an infinite
@@ -77,9 +84,15 @@ public strictfp class RobotPlayer {
                     MapLocation[] spawnLocs = rc.getAllySpawnLocations();
                     // Pick a random spawn location to attempt spawning in.
                     MapLocation randomLoc = spawnLocs[rng.nextInt(spawnLocs.length)];
-                    if (rc.canSpawn(randomLoc)) rc.spawn(randomLoc);
+                    if (rc.canSpawn(randomLoc)) {
+                        rc.spawn(randomLoc);
+                        spawnPoint = randomLoc;
+                    }
                 }
                 else{
+                    Communication.updateComms(rc);
+
+
                     if (rc.canPickupFlag(rc.getLocation())){
                         rc.pickupFlag(rc.getLocation());
                         rc.setIndicatorString("Holding a flag!");
@@ -90,21 +103,42 @@ public strictfp class RobotPlayer {
                     if (rc.hasFlag() && rc.getRoundNum() >= GameConstants.SETUP_ROUNDS){
                         MapLocation[] spawnLocs = rc.getAllySpawnLocations();
                         MapLocation firstLoc = spawnLocs[0];
-                        pathing.moveTowards(firstLoc);
-                    }
-                    // Move toward broadcasted location of enemy flags if they exist
-                    MapLocation[] droppedEnemyFlags = rc.senseBroadcastFlagLocations();
-                    MapLocation target;
-                    if (droppedEnemyFlags.length > 0)
-                    {
-                        target = droppedEnemyFlags[0];
-                    }
-                    else
-                    {
-                        target = new MapLocation(0,0);
+                        Pathing.moveTowards(rc, firstLoc);
                     }
 
-                    pathing.moveTowards(target);
+                    MapLocation target;
+                    if (true)
+                    {
+
+                        //Attack
+                        FlagInfo[] closeFlags = rc.senseNearbyFlags(3, rc.getTeam().opponent());
+                        if (closeFlags.length > 0)
+                        {
+                            target = closeFlags[0].getLocation();
+                        }
+                        else
+                        {
+                            MapLocation[] enemyFlags = Communication.getEnemyFlagLocations();
+                            if (enemyFlags.length > 0)
+                            {
+                                target = enemyFlags[0];
+                            }
+                            else
+                            {
+                                //Go to the opposite location of the spawn
+                                int targetX = rc.getMapWidth() - spawnPoint.x - 1;
+                                int targetY = rc.getMapHeight() - spawnPoint.y - 1;
+                                target = new MapLocation(targetX,targetY);
+
+                            }
+                        }
+                        rc.setIndicatorString("Attacking " + target.toString());
+                    }
+                    Pathing.moveTowards(rc, target);
+                    if (rc.getLocation().isWithinDistanceSquared(target, 20) || rc.getMovementCooldownTurns() > 40)
+                    {
+                        spawnPoint = new MapLocation(rng.nextInt(rc.getMapWidth()), rng.nextInt(rc.getMapHeight()));
+                    }
 
                     for (int i = 0; i < directions.length; i++)
                     {
