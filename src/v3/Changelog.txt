@@ -1,0 +1,3 @@
+Changes made compared to v2:
+- Added economy (go toward crumbs and fill as needed to get there)
+- If a bot is holding a flag, try to avoid enemies while returning back
