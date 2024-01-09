@@ -1,0 +1,8 @@
+Changes made compared to v4:
+- Improved Comms
+- Use Pseudo-random movement for exploration
+
+Notes:
+- v5 shows clustering behavior around flag carriers, resulting in slow but strong flag captures
+- v5 significantly outperforms v4 in specialization
+- v4 usually beats v5 via flag captures due to v4's slowness and lack of defense, but v5 is likely better in the long-term
