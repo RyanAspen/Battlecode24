@@ -1,0 +1,12 @@
+Changes made compared to v8:
+- Added Clustering (Comms + Attacker changes)
+- Attackers now more intelligently choose their flag targets
+- Added Capacity for Strategy Changing (Doesn't really do this yet)
+- Added Global Upgrade Buying (current not used to make testing more fair)
+
+Notes:
+- Typically beats v7, but will occassionally lose on a tiebreaker
+- Cluster offense seems to be strong, but there's still the issue of blocking the flag carrier
+- Strategy changing doesn't make much sense until we can determine how big of a lead we have
+- Flag Comms should be fixed, as they aren't correctly reported (reported when they shouldn't be and vice versa)
+- Defenders don't spread out between flags
