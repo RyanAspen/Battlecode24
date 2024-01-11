@@ -1,0 +1,23 @@
+Changes made compared to v8:
+- Reworked Defensive Role
+    * Combine Defender and Builder Roles
+    * Defensive bot should sit on the flag and place traps near it
+        * If a defensive bot is damaged, send out a distress signal
+    * Only assign one or two defensive bots per flag (Use Comms to do this)
+    * Place bombs specifically near the flags
+- Improve Flag Capturing
+    * If a bot is adjacent to a friendly flag carrier, move so that it isn't if possible.
+
+- Remove specific Healer role
+TODO - Improve Micro
+    *
+    * Healing should only happen if there is nothing to attack
+    * Use Comms to one-shot enemies
+    * Attackers should occasionally set traps
+    * Attackers should favor movements that keep them close to allies
+    * Attackers should stay away from enemies if they have too little health  and there are allies around
+
+Notes:
+- v9 generally beats v8
+- Defenders need to know whether to stick to protecting their flag or try to protect a new one
+- Micro needs improving still
