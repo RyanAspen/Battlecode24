@@ -1,0 +1,7 @@
+Changes made compared to 9:
+- Implemented new pathfinding
+
+Notes:
+- v10 consistently beats v9 even on simple maps
+- I suspect v10 will do better on more advanced maps as well
+
