@@ -1,0 +1,13 @@
+Changes made compared to v11:
+- Incorporated actual attack power (with skill level) into One-Shot calculation
+- Use Comms for One-Shot (Make sure to fix the attack radius, use enemy ids instead of location)
+- Bots only attack on even rounds to make sure all allies can attack at the same time
+- Put crumb seeking into Micro, removed econ
+- Bots don't kite if they have a numbers advantage
+- Bots drop explosive traps in enemy territory (barely used due to crumb management)
+    
+
+Notes:
+- In direct combat, micro is much better than v11
+- v12 always beats v11, sometimes by a lot
+
