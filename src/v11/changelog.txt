@@ -1,0 +1,6 @@
+Changes made compared to v10:
+- Created separate Constants file and SharedVariables file
+
+Notes:
+- v11 should be identical to v10, just easier to work with moving forward
+
