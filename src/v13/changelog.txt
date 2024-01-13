@@ -1,0 +1,11 @@
+Changes made compared to v12:
+- Overhauled Micro
+    * For rounds 170-200, retreat from the dam while placing stun traps
+    * One-Shotting no longer used (bad game for it)
+    * Instead use a ranking system to determine what to attack
+- Crumb Management system added
+
+Notes:
+- v13 has significantly better micro than v11 or v12
+- Marking system currently isn't used
+- Crumb management is still buggy and doesn't make full use of crumbs available
