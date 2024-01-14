@@ -1,0 +1,8 @@
+Changes made compared to v13:
+- Added Global Upgrade Buying
+- Fixed Crumb Management
+
+Notes:
+- Only slightly better than v13
+- Crumb Management still sometimes results in overspending for defense, but this is
+probably due to an issue with the Defender
