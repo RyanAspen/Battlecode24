@@ -1,0 +1,16 @@
+Changes made compared to v14:
+- All Attackers focus one flag
+- Friendly Flags are now very well kept track of
+- Defenders are evenly distributed around all flags that we still have
+- Bots spawn near flags in danger if possible
+    * Attackers then try to spawn closest to the flag they are going for
+    * Defenders try to spawn near their flag to protect
+- Keep track of allied flag counts vs enemy flag counts
+    * Modify strategy dynamically depending on the game state
+- Micro prioritizes attacking enemies near friendly flags (rank 4, right behind flag carriers)
+
+Notes:
+- Economy doesn't keep strategy changes in mind yet (crumb use isn't perfect)
+- v15 generally beats v13 and v14
+- Much less aggressive play, generally prefers to win at round 2000
+    * Average level is much higher when playing defensively
