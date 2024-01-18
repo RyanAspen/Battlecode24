@@ -1,0 +1,21 @@
+Changes made compared to v15:
+* Made Flag Carrier Specific File
+        * If we are outnumbered, avoid enemies
+        * Move towards the closest spawn that isn't near a flag in danger
+        * Should send a signal that all attackers should approach
+TODO:
+    * Micro Changes (v17)
+        * Never approach to attack a clustered enemy (can still attack)
+        * Only heal if no enemy is seen. If enemies are seen but cannot attack any, just don't act.
+        * Bots should calculate if they could be jailed by next turn in their current location and attempt
+        to move to a safe spot if that is the case
+        * Bots near enemy flags that don't have an important target should try to fill near the flag (diffuse traps)
+        * Bots should mark enemies with high exp in attack or healing
+        * Attackers should rendezvous near the flag they attack before attacking
+        * If there aren't many allies around, evade larger groups of enemies.
+    * Setup Changes
+        * If we see enemies and we are in setup, place an explosive trap
+        * Don't place stun traps
+        * Still move slightly away from dams right before start
+
+Notes:
