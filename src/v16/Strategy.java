@@ -34,17 +34,55 @@ public class Strategy {
     }
 
     public static void changeStrategy(RobotController rc) throws GameActionException {
-        if (rc.canBuyGlobal(GlobalUpgrade.ATTACK))
+        int currentStrategy = Communication.getStrategy(rc);
+        switch (currentStrategy)
         {
-            rc.buyGlobal(GlobalUpgrade.ATTACK);
-        }
-        if (rc.canBuyGlobal(GlobalUpgrade.HEALING))
-        {
-            rc.buyGlobal(GlobalUpgrade.HEALING);
+            case (Constants.AGGRESSIVE_STRATEGY):
+                if (rc.canBuyGlobal(GlobalUpgrade.ATTACK))
+                {
+                    rc.buyGlobal(GlobalUpgrade.ATTACK);
+                }
+                else if (rc.canBuyGlobal(GlobalUpgrade.CAPTURING))
+                {
+                    rc.buyGlobal(GlobalUpgrade.CAPTURING);
+                }
+                else if (rc.canBuyGlobal(GlobalUpgrade.HEALING))
+                {
+                    rc.buyGlobal(GlobalUpgrade.HEALING);
+                }
+                break;
+            case (Constants.BALANCED_STRATEGY):
+                if (rc.canBuyGlobal(GlobalUpgrade.ATTACK))
+                {
+                    rc.buyGlobal(GlobalUpgrade.ATTACK);
+                }
+                else if (rc.canBuyGlobal(GlobalUpgrade.HEALING))
+                {
+                    rc.buyGlobal(GlobalUpgrade.HEALING);
+                }
+                else if (rc.canBuyGlobal(GlobalUpgrade.CAPTURING))
+                {
+                    rc.buyGlobal(GlobalUpgrade.CAPTURING);
+                }
+                break;
+            case (Constants.TURTLE_STRATEGY):
+                if (rc.canBuyGlobal(GlobalUpgrade.HEALING))
+                {
+                    rc.buyGlobal(GlobalUpgrade.HEALING);
+                }
+                else if (rc.canBuyGlobal(GlobalUpgrade.ATTACK))
+                {
+                    rc.buyGlobal(GlobalUpgrade.ATTACK);
+                }
+                else if (rc.canBuyGlobal(GlobalUpgrade.CAPTURING))
+                {
+                    rc.buyGlobal(GlobalUpgrade.CAPTURING);
+                }
+                break;
         }
         int friendlyFlagCount = Communication.getFriendlyFlagsCount(rc);
         int enemyFlagCount = Communication.getEnemyFlagsCount(rc);
-        int currentStrategy = Communication.getStrategy(rc);
+
 
         if (friendlyFlagCount == enemyFlagCount && currentStrategy != Constants.BALANCED_STRATEGY)
         {
