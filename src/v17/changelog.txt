@@ -1,0 +1,11 @@
+Changes made compared to v16:
+* Where a defender goes to defend is now based on live defender counts instead of static defender assignments
+* All bots will attempt to move to block a flag grab if possible
+TODO: Rework attack clustering
+    * Instead of actively creating cluster points, report locations with many allies (MIN_COUNT_FOR_CLUSTER)
+    * Bots should prefer moving toward the closest cluster if they aren't in one (MIN_COUNT_FOR_CLUSTER_MOVE)
+    * If there are no clusters OR the bot is already in one, move as normal
+
+Notes:
+- Better than v16, but not by a lot.
+- Sometimes too passive
