@@ -71,19 +71,31 @@ class Communication {
     }
 
     public static boolean areFlagsCloseTogether(RobotController rc) throws GameActionException {
-        int ids = 0;
-        for (int i = Constants.FLAGS_MOVED_IDX; i < Constants.FLAGS_MOVED_IDX + GameConstants.NUMBER_FLAGS; i++)
+        int maxDist = 0;
+        for (int i = 0; i < GameConstants.NUMBER_FLAGS; i++)
         {
-            if (rc.readSharedArray(i) != 0)
+            MapLocation flag1Loc = intToLocation(rc, rc.readSharedArray(Constants.FRIENDLY_FLAG_LOC_IDX + i));
+            if (flag1Loc == null)
             {
-                ids++;
+                continue;
+            }
+
+            for (int j = 1; j < GameConstants.NUMBER_FLAGS; j++)
+            {
+                MapLocation flag2Loc = intToLocation(rc, rc.readSharedArray(Constants.FRIENDLY_FLAG_LOC_IDX + j));
+                if (flag2Loc == null)
+                {
+                    continue;
+                }
+
+                int dist = flag1Loc.distanceSquaredTo(flag2Loc);
+                if (dist > maxDist)
+                {
+                    maxDist = dist;
+                }
             }
         }
-        if (ids >= 2)
-        {
-            return true;
-        }
-        return false;
+        return maxDist < 120;
     }
 
     private static void reportDam(RobotController rc, MapLocation damLoc) throws GameActionException {

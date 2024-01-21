@@ -96,7 +96,7 @@ public class Strategy {
 
 
         //Overall defensive map
-        if (false)
+        if (Communication.areFlagsCloseTogether(rc))
         {
             if (friendlyFlagCount < enemyFlagCount && currentStrategy != Constants.AGGRESSIVE_STRATEGY)
             {
