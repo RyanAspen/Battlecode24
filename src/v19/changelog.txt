@@ -1,0 +1,7 @@
+Changes made compared to v18:
+- Flags are now moved
+- Added Siege Tactics
+
+Notes:
+- Usually beats v18, especially when it can make use of flag movement
+- Unsure if siege tactics is implemented right
