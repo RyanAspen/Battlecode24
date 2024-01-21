@@ -1,0 +1,8 @@
+Changes made compared to v19:
+- Exploration reworked
+- Added failsafe for flags getting lost during flag moving
+- Defenders use stun traps instead of explosive traps
+- Dam Setup isn't used if there are crumbs nearby
+
+Notes:
+- v20 is better than v19 generally, but it doesn't always beat it
