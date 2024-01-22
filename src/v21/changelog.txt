@@ -1,0 +1,9 @@
+Changes made compared to v20:
+- Micro overhauled
+    * Changed ranking
+    * Changed trap use
+- Constants Changed
+- Flag Movement Temporarily Disabled
+
+Notes:
+- v21 usually beats v20
