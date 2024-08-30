@@ -1,0 +1,12 @@
+Changes made compared to v21:
+- Micro is improved BUT
+TODO
+    * Rendezvous for attackers
+    * Test with reworked micro/macro, then remove/reorganize code
+    * Debug defender flagID bug
+    * Prioritize flag carriers
+    * Prioritize enemies affected by stun traps (also change it so we record enemies stunned and not locations)
+
+
+Notes:
+- v22 almost always beats v21, but improvements can be made
