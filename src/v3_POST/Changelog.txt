@@ -1,0 +1,5 @@
+Changes from v2_POST:
+- Added many Micro and Macro functions
+- Rudimentary roles (attacker + defender)
+- Basic Clustering
+- Healing and attacking now prioritizes flag carriers

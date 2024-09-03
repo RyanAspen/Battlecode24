@@ -1,3 +1,4 @@
 Changes from v0_POST:
 - Added attackv2
 - Modified getMoveDir() to always give space to flag carriers
+- Seek out crumbs

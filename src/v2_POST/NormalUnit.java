@@ -1,4 +1,4 @@
-package v1_POST;
+package v2_POST;
 
 import battlecode.common.*;
 
@@ -22,11 +22,15 @@ public class NormalUnit {
         updateBroadcasted();
         if (rc.hasFlag())
         {
+            Micro.tacticalRetreat();
             Movement.goHome();
         }
         else
         {
             Micro.attackv2();
+            Micro.tacticalRetreat();
+            Micro.seekCrumbs();
+            Micro.heal();
             FlagInfo[] nearFlags = rc.senseNearbyFlags(2, rc.getTeam().opponent());
             for (int i = 0; i < nearFlags.length; i++)
             {
