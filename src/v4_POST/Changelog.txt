@@ -1,0 +1,8 @@
+Changes from v3_POST:
+- Added dynamic role system
+- Temporarily removed clustering
+- Added builders
+- Added more advanced combat micro
+
+NOTES:
+- Now occasionally beats v21
