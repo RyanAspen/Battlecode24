@@ -1,0 +1,7 @@
+Changes from v4_POST:
+- Overall Micro function created
+- General Micro improvements
+
+NOTES:
+- Although generally better performing than v4_POST, it generally
+has worst EXP levels than previous versions
